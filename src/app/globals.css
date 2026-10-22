@@ -1,0 +1,40 @@
+@import "tailwindcss";
+@import "../styles/tokens.css";
+
+@theme inline {
+  /* Breakpoints aligned to Elementor (mobile ≤767, tablet ≤1024, desktop ≥1025) */
+  --breakpoint-tablet: 48rem; /* 768px */
+  --breakpoint-desktop: 64.0625rem; /* 1025px */
+
+  --color-primary: var(--mpm-primary);
+  --color-accent: var(--mpm-accent);
+  --color-secondary: var(--mpm-secondary);
+  --color-mpm-text: var(--mpm-text);
+  --color-text-inverse: var(--mpm-text-inverse);
+  --color-yellow: var(--mpm-yellow);
+  --color-surface: var(--mpm-surface);
+  --color-neutral-brown: var(--mpm-neutral-brown);
+  --color-stroke: var(--mpm-stroke);
+
+  --font-display: var(--font-koulen), "Koulen", sans-serif;
+  --font-body: var(--font-roboto), "Roboto", sans-serif;
+  --font-number: var(--font-lalezar), "Lalezar", sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--mpm-secondary);
+    color: var(--mpm-text);
+    font-family: var(--font-body);
+    font-size: var(--text-body-size); /* 16px mobile / 18px tablet+ */
+    line-height: 1.5;
+  }
+
+  a {
+    color: inherit;
+  }
+}

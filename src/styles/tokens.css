@@ -1,0 +1,107 @@
+/**
+ * Global design tokens.
+ *
+ * Source of truth: WordPress/Elementor Site Settings (post-6.css kit) + live homepage.
+ * Figma (Home frame 2342:6550) is aligned where values match; WP wins on conflicts.
+ *
+ * Notable conflict: Figma body face is Avenir; WP uses Roboto — we use Roboto.
+ * Elementor breakpoints: mobile ≤767px, tablet ≤1024px, desktop ≥1025px.
+ */
+
+:root {
+  /* Color styles (Elementor globals + shared brand accents) */
+  --mpm-primary: #c24f2e; /* WP --e-global-color-primary = Figma Accent/Orange */
+  --mpm-accent: #597f71; /* WP --e-global-color-accent = Figma Accent/Green */
+  --mpm-secondary: #ffffff; /* WP --e-global-color-secondary */
+  --mpm-text: #000000; /* WP --e-global-color-text */
+  --mpm-text-inverse: #ffffff;
+  --mpm-yellow: #de8b27; /* Brand accent used on live + Figma Accent/Yellow */
+  --mpm-surface: #f5f1e6; /* Live WP cream section background */
+  --mpm-neutral-brown: #63513d; /* Figma Complement; footer link tone on live */
+  --mpm-stroke: #d5d4df; /* Figma Stroke */
+
+  /* Accent bar / border thickness — consistent sitewide minimum */
+  --mpm-accent-thickness: 10px;
+  --mpm-accent-gap: 11px;
+
+  /* Typography families (set via next/font CSS variables on <html>) */
+  --font-display: var(--font-koulen), "Koulen", sans-serif;
+  --font-body: var(--font-roboto), "Roboto", sans-serif;
+  --font-number: var(--font-lalezar), "Lalezar", sans-serif;
+
+  /* Text style sizes — mobile first; body min 16px mobile / 18px desktop */
+  --text-primary-size: 1.68rem; /* ~26.88px */
+  --text-secondary-size: 2.0425rem; /* ~32.68px */
+  --text-body-size: 1rem; /* 16px mobile minimum */
+  --text-nav-size: 1.25rem; /* 20px */
+  --text-secondary-line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --text-primary-size: 2rem; /* 32px tablet */
+    --text-secondary-size: 2.933rem; /* ~46.93px */
+    --text-body-size: 1.125rem; /* 18px */
+  }
+}
+
+@media (min-width: 1025px) {
+  :root {
+    --text-primary-size: 4rem; /* 64px desktop */
+    --text-secondary-size: 5.9375rem; /* 95px */
+    --text-body-size: 1.125rem; /* 18px desktop minimum */
+    --text-secondary-line-height: 0.83;
+  }
+}
+
+/* Named text styles — prefer these over ad-hoc sizes */
+.text-style-primary {
+  font-family: var(--font-display);
+  font-size: var(--text-primary-size);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.text-style-secondary {
+  font-family: var(--font-display);
+  font-size: var(--text-secondary-size);
+  font-weight: 400;
+  line-height: var(--text-secondary-line-height);
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.text-style-body {
+  font-family: var(--font-body);
+  font-size: var(--text-body-size);
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.text-style-accent {
+  font-family: var(--font-body);
+  font-size: var(--text-body-size);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.text-style-nav {
+  font-family: var(--font-display);
+  font-size: var(--text-nav-size);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.text-style-link {
+  font-family: var(--font-body);
+  font-size: var(--text-body-size);
+  font-weight: 900;
+  line-height: 1.4;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
